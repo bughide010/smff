@@ -1,12 +1,17 @@
 {
-  "name": "@brightdataa/hide-mcp",
+  "name": "hide-mcp",
   "version": "1.0.0",
   "private": true,
   "type": "module",
   "module": "./src/index.ts",
   "scripts": {
-    "build": "tsc",
-    "prepare": "npm run build"
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@smithery/sdk": "^1.6.3",
+    "express": "^4.19.2",
+    "cors": "^2.8.5",
+    "chalk": "^4.1.2"
   },
   "devDependencies": {
     "typescript": "^5.3.3"
