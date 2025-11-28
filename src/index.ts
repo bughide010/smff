@@ -1,38 +1,20 @@
-import express from "express";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/node";
+import { Server } from "@modelcontextprotocol/sdk/server";
 
-const app = express();
-app.use(express.json());
+console.log("MCP server: starting");
 
-app.post("/", (req, res) => {
-    const { method, id } = req.body;
+const server = new Server(
+  {
+    name: "test-server",
+    version: "1.0.0",
+  },
+  {
+    // No tools for now
+  }
+);
 
-    // Minimal valid MCP response for scanner
-    if (method === "initialize") {
-        return res.json({
-            jsonrpc: "2.0",
-            id,
-            result: {
-                protocolVersion: "2025-06-18",
-                serverInfo: {
-                    name: "test-mcp-server",
-                    version: "1.0.0"
-                },
-                capabilities: {}
-            }
-        });
-    }
+const transport = new StdioServerTransport();
 
-    return res.json({
-        jsonrpc: "2.0",
-        id,
-        error: {
-            code: -32601,
-            message: "Method not found"
-        }
-    });
-});
+server.connect(transport);
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-    console.log("MCP server running on port " + port);
-});
+console.log("MCP server: ready");
