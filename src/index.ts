@@ -1,4 +1,4 @@
-import { StdioServerTransport } from "@modelcontextprotocol/sdk/node";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk";
 import { Server } from "@modelcontextprotocol/sdk/server";
 
 console.log("MCP server: starting");
