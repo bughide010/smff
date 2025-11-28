@@ -1,0 +1,14 @@
+{
+  "name": "@brightdataa/hide-mcp",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "module": "./src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
