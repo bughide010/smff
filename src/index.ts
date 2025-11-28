@@ -1,19 +1,15 @@
-import {
-  Server,
-  StdioServerTransport
-} from "@modelcontextprotocol/sdk";
+import { Server, StdioServerTransport } from "@modelcontextprotocol/sdk";
 
 console.log("MCP server: starting");
 
 const server = new Server(
   {
     name: "test-server",
-    version: "1.0.0",
+    version: "1.0.0"
   },
   {}
 );
 
-const transport = new StdioServerTransport();
-server.connect(transport);
+server.connect(new StdioServerTransport());
 
 console.log("MCP server: ready");
