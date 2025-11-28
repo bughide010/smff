@@ -1,3 +1,11 @@
-runtime: typescript
-target: mcp
+# schema-correct for Smithery GitHub deploys that use a built artifact/container runtime
+runtime: container
+target: remote
+
+# startCommand is required for container runtime by the validator
+startCommand:
+  command: ["node", "dist/index.js"]
+  # optional args:
+  args: []
+
 env: {}
