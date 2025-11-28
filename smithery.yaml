@@ -1,10 +1,10 @@
-name: brightdataa-hide-mcp
-version: 1.0.0
+name: "@brightdataa/hide-mcp"
+version: "1.0.0"
+description: "POC MCP server for namespace takeover testing"
 
 runtime: typescript
-target: remote
 
-startCommand:
-  executable: node
-  args:
-    - dist/index.js
+mcp:
+  server:
+    entrypoint: src/index.ts
+    language: typescript
