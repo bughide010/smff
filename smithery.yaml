@@ -1,7 +1,5 @@
 runtime: typescript
 target: remote
 
-startCommand:
-  executable: node
-  args:
-    - dist/index.js
+env:
+  SMITHERY_EXTERNALS: "@modelcontextprotocol/sdk"
