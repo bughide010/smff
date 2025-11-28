@@ -1,10 +1,21 @@
-name: "@brightdataa/hide-mcp"
-version: "1.0.0"
-description: "POC MCP server for namespace takeover testing"
+import {
+  Server,
+  StdioServerTransport
+} from "@modelcontextprotocol/sdk/dist/cjs/index.cjs";
 
-runtime: typescript
+console.log("MCP server: starting");
 
-mcp:
-  server:
-    entrypoint: src/index.ts
-    language: typescript
+const server = new Server(
+  {
+    name: "test-server",
+    version: "1.0.0",
+  },
+  {
+    // no tools
+  }
+);
+
+const transport = new StdioServerTransport();
+server.connect(transport);
+
+console.log("MCP server: ready");
